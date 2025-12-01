@@ -1,0 +1,47 @@
+=================================================================
+PyInstaller 빌드 커맨드 - 복사해서 명령 프롬프트에 붙여넣기
+=================================================================
+
+★ 1단계: PyInstaller 설치
+pip install pyinstaller
+
+
+★ 2단계: 기본 버전 빌드
+pyinstaller --onefile --windowed email_sender.py
+
+
+★ 3단계: 고급 버전 빌드
+pyinstaller --onefile --windowed email_sender_advanced.py
+
+
+★ 올인원 (한번에 설치 + 빌드)
+pip install pyinstaller && pyinstaller --onefile --windowed email_sender.py && pyinstaller --onefile --windowed email_sender_advanced.py
+
+
+=================================================================
+빌드 완료 후
+=================================================================
+
+dist 폴더에 생성된 파일:
+- email_sender.exe (기본 버전)
+- email_sender_advanced.exe (고급 버전)
+
+원하는 이름으로 변경 가능:
+- 메일발송프로그램_기본.exe
+- 메일발송프로그램_고급.exe
+
+
+=================================================================
+문제 해결
+=================================================================
+
+에러가 나면 콘솔 모드로 빌드 (--windowed 제거):
+pyinstaller --onefile email_sender.py
+
+이전 빌드 삭제 후 재빌드:
+rmdir /s /q build dist
+del *.spec
+pyinstaller --onefile --windowed email_sender.py
+
+
+=================================================================
